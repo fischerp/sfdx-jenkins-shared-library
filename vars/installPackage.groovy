@@ -20,8 +20,8 @@ def call(Map parameters = [:]) {
     echo "Installing package ${packageLabel} (${p.versionId}) in org ${org.name}"
     shWithStatus "sfdx force:package:install --targetusername ${org.username} --package \"${p.versionId}\" --installationkey ${p.installationkey} --apiversion=51.0 --noprompt"
     // Wait 18 minutes
+    echo "Sleep for 18 min due to ENOTFOUND issues"
     sleep 1080
-    echo "Installed package"
 }
 
 def retrievePackageLabel(packageVersionId, org) {
